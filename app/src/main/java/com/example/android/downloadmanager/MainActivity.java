@@ -51,13 +51,14 @@ public class MainActivity extends Activity {
         registerReceiver(receiver, new IntentFilter(
                 DownloadManager.ACTION_DOWNLOAD_COMPLETE));
     }
+
     public void onClick(View view) {
         dm = (DownloadManager) getSystemService(DOWNLOAD_SERVICE);
         DownloadManager.Request request = new DownloadManager.Request(
                 Uri.parse("http://mymp3singer.net/files/download/id/8747"));
-       // request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
-       request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE);
-        request.setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS,"Chand Sitare.mp3");
+        // request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
+        request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE);
+        request.setDestinationInExternalFilesDir(this, Environment.DIRECTORY_DOWNLOADS, "Chand Sitare.mp3");
         enqueue = dm.enqueue(request);
 
     }
